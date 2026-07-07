@@ -118,15 +118,7 @@ const about: About = {
             Developed social media marketing campaigns from strategy to scripted content, and produced node-based motion graphics for video productions in DaVinci Resolve
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
     ],
   },
@@ -134,24 +126,37 @@ const about: About = {
     display: true, // set to false to hide this section
     title: "Studies",
     institutions: [
-      {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
-      },
-    ],
+  {
+    name: "Kwantlen Polytechnic University",
+    timeframe: "Sep 2024 - Present",
+    role: <>Advanced Game Development Diploma • <strong>4.3 GPA</strong></>,
+    description: (
+      <>
+        Entertainment Arts Entrance Award for strong application portfolio.
+      </>
+    ),
+  },
+  {
+    name: "Kwantlen Polytechnic University",
+    timeframe: "Sep 2023 - Aug 2024",
+    role: <>Entertainment Arts Certificate • <strong>4.33 GPA</strong></>,
+    description: (
+      <>
+        Entertainment Arts Entrance Award for strong application portfolio.
+      </>
+    ),
+  },
+],
+   
   },
   technical: {
     display: true, // set to false to hide this section
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
+        title: "Unity",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>Unity description</>
         ),
         tags: [
           {
@@ -160,49 +165,63 @@ const about: About = {
           },
         ],
         // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        title: "Next.js",
+        title: "Unreal",
         description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+          <>Unreal description</>
         ),
         tags: [
           {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
+            name: "Figma",
+            icon: "figma",
           },
         ],
         // optional: leave the array empty if you don't want to display images
-        images: [
+        images: [],
+      },
+      {
+        title: "C#",
+        description: (
+          <>C# description</>
+        ),
+        tags: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "Figma",
+            icon: "figma",
           },
         ],
+        // optional: leave the array empty if you don't want to display images
+        images: [],
+      },
+      {
+        title: "Version Control",
+        description: (
+          <>Perforce and Git description</>
+        ),
+        tags: [
+          {
+            name: "Figma",
+            icon: "figma",
+          },
+        ],
+        // optional: leave the array empty if you don't want to display images
+        images: [],
+      },
+      {
+        title: "UI UX",
+        description: (
+          <>Figma</>
+        ),
+        tags: [
+          {
+            name: "Figma",
+            icon: "figma",
+          },
+        ],
+        // optional: leave the array empty if you don't want to display images
+        images: [],
       },
     ],
   },

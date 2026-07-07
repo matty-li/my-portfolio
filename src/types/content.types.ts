@@ -181,8 +181,22 @@ export interface About extends BasePageConfig {
     institutions: Array<{
       /** Institution name */
       name: string;
-      /** Description of studies */
-      description: React.ReactNode;
+      /** Timeframe of studies */
+      timeframe: string;
+      /** Credential */
+      role: string;
+      /** Achievements at the institution */
+      achievements: React.ReactNode[];
+      /** Images related to the experience */
+      images?: Array<{
+        /** Image source path */
+        src: string;
+        /** Image alt text */
+        alt: string;
+        /** Image width ratio */
+        width: number;
+        /** Image height ratio */
+        height: number;
     }>;
   };
   /** Technical skills section */
