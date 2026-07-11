@@ -152,6 +152,19 @@ export default function About() {
             >
               {person.role}
             </Text>
+            {person.resume && (
+              <Row className={styles.blockAlign} paddingTop="16">
+                <Button
+                  href={person.resume}
+                  variant="primary"
+                  size="m"
+                  weight="default"
+                  prefixIcon="document"
+                >
+                  Download Resume
+                </Button>
+              </Row>
+            )}
             {social.length > 0 && (
               <Row
                 className={styles.blockAlign}

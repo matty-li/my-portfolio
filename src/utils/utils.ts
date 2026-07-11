@@ -2,13 +2,6 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-type Team = {
-  name: string;
-  role: string;
-  avatar: string;
-  linkedIn: string;
-};
-
 type Metadata = {
   title: string;
   subtitle?: string;
@@ -16,8 +9,7 @@ type Metadata = {
   summary: string;
   image?: string;
   images: string[];
-  tag?: string;
-  team: Team[];
+  tags?: string[];
   link?: string;
 };
 
@@ -27,7 +19,6 @@ function getMDXFiles(dir: string) {
   if (!fs.existsSync(dir)) {
     notFound();
   }
-
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 
@@ -35,10 +26,8 @@ function readMDXFile(filePath: string) {
   if (!fs.existsSync(filePath)) {
     notFound();
   }
-
   const rawContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(rawContent);
-
   const metadata: Metadata = {
     title: data.title || "",
     subtitle: data.subtitle || "",
@@ -46,11 +35,9 @@ function readMDXFile(filePath: string) {
     summary: data.summary || "",
     image: data.image || "",
     images: data.images || [],
-    tag: data.tag || [],
-    team: data.team || [],
+    tags: data.tags || [],
     link: data.link || "",
   };
-
   return { metadata, content };
 }
 
@@ -59,7 +46,6 @@ function getMDXData(dir: string) {
   return mdxFiles.map((file) => {
     const { metadata, content } = readMDXFile(path.join(dir, file));
     const slug = path.basename(file, path.extname(file));
-
     return {
       metadata,
       slug,
