@@ -3,17 +3,13 @@ import { getPosts } from "@/utils/utils";
 import {
   Meta,
   Schema,
-  AvatarGroup,
-  Button,
   Column,
-  Flex,
   Heading,
-  Media,
   Text,
   SmartLink,
-  Row,
-  Avatar,
   Line,
+  Row,
+  Carousel,
 } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
@@ -69,7 +65,7 @@ export default async function Project({
   }
 
   return (
-    <Column as="section" maxWidth="m" horizontal="center" gap="l">
+    <Column as="section" maxWidth="l" horizontal="center" gap="l">
       <Schema
         as="blogPosting"
         baseURL={baseURL}
@@ -87,19 +83,54 @@ export default async function Project({
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column maxWidth="s" gap="16" horizontal="center" align="center">
-        <SmartLink href="/work">
-          <Text variant="label-strong-m">Projects</Text>
-        </SmartLink>
-        <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
-          {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
-        </Text>
-        <Heading variant="display-strong-m">{post.metadata.title}</Heading>
-      </Column>
-      {post.metadata.images.length > 0 && (
-        <Media priority aspectRatio="16 / 9" radius="m" alt="image" src={post.metadata.images[0]} />
-      )}
-      <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
+      <SmartLink href="/work">
+        <Text variant="label-strong-m">Projects</Text>
+      </SmartLink>
+      <Row fillWidth gap="32" vertical="center" s={{ direction: "column" }}>
+        {post.metadata.images.length > 0 && (
+          <Column flex={6} fillWidth>
+            <Carousel
+              sizes="(max-width: 960px) 100vw, 960px"
+              aspectRatio="16 / 9"
+              items={post.metadata.images.map((image) => ({
+                slide: image,
+                alt: post.metadata.title,
+              }))}
+            />
+          </Column>
+        )}
+        <Column flex={5} fillWidth gap="8">
+          <Text variant="body-default-xs" onBackground="neutral-weak">
+            {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
+          </Text>
+          <Heading variant="display-strong-m">{post.metadata.title}</Heading>
+          {post.metadata.summary && (
+            <Text variant="body-default-m" onBackground="neutral-weak">
+              {post.metadata.summary}
+            </Text>
+          )}
+          {post.metadata.tags && post.metadata.tags.length > 0 && (
+            <Row gap="8" wrap marginTop="4">
+              {post.metadata.tags.map((tag) => (
+                <SmartLink key={tag} href={`/work?tag=${encodeURIComponent(tag)}`}>
+                  <Text
+                    variant="label-default-s"
+                    onBackground="brand-medium"
+                    style={{
+                      padding: "1px 8px",
+                      borderRadius: "var(--radius-full)",
+                      background: "var(--brand-alpha-weak)",
+                    }}
+                  >
+                    {tag}
+                  </Text>
+                </SmartLink>
+              ))}
+            </Row>
+          )}
+        </Column>
+      </Row>
+      <Column style={{ margin: "auto" }} as="article" maxWidth="200">
         <CustomMDX source={post.content} />
       </Column>
       <Column fillWidth gap="40" horizontal="center" marginTop="40">

@@ -11,7 +11,7 @@ const person: Person = {
   location: "Vancouver, BC", // Expecting the IANA time zone identifier, e.g., 'Canada/Pacific'
   languages: [], // optional: Leave the array empty if you don't want to display languages
   locale: "en", // BCP 47 language tag for the HTML lang attribute, e.g., 'en', 'ja', 'zh-TW'
-  resume: "/resume.pdf",
+  resume: "/MattyLi_Resume.pdf",
 };
 
 const newsletter: Newsletter = {
@@ -152,78 +152,43 @@ const about: About = {
   },
   technical: {
     display: true, // set to false to hide this section
-    title: "Technical skills",
+    title: "Skills",
     skills: [
       {
-        title: "Unity",
-        description: (
-          <>Unity description</>
-        ),
-        tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [],
-      },
-      {
-        title: "Unreal",
-        description: (
-          <>Unreal description</>
-        ),
-        tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [],
-      },
-      {
-        title: "C#",
-        description: (
-          <>C# description</>
-        ),
-        tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [],
-      },
-      {
-        title: "Version Control",
-        description: (
-          <>Perforce and Git description</>
-        ),
-        tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [],
-      },
-      {
-        title: "UI UX",
-        description: (
-          <>Figma</>
-        ),
-        tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [],
-      },
+  title: "Development",
+  description: <>Unity description</>,
+      tags: [
+        { name: "Unity", icon: "unity" },
+        { name: "Unreal Engine", icon: "unrealengine" },
+        { name: "C#", icon: "csharp" },
+        { name: "Python", icon: "python" },
+        { name: "Perforce", icon: "perforce" },
+        { name: "Git", icon: "git" },
+      ],
+      images: [],
+    },
+    {
+      title: "Design",
+      description: <>Unreal description</>,
+      tags: [
+        { name: "Figma", icon: "figma" },
+        { name: "Adobe Photoshop", icon: "photoshop" },
+        { name: "Illustration"},
+        { name: "UI/UX Design"},
+      ],
+      images: [],
+    },
+    {
+      title: "Approach",
+      description: <>Unreal description</>,
+      tags: [
+        { name: "Attention to detail"},
+        { name: "Problem solving"},
+        { name: "Continuous learner"},
+        { name: "Agile development"},
+      ],
+      images: [],
+    },
     ],
   },
 };

@@ -152,65 +152,68 @@ export default function About() {
             >
               {person.role}
             </Text>
-            {person.resume && (
-              <Row className={styles.blockAlign} paddingTop="16">
-                <Button
-                  href={person.resume}
-                  variant="primary"
-                  size="m"
-                  weight="default"
-                  prefixIcon="document"
-                >
-                  Download Resume
-                </Button>
-              </Row>
-            )}
-            {social.length > 0 && (
-              <Row
-                className={styles.blockAlign}
-                paddingTop="20"
-                paddingBottom="8"
-                gap="8"
-                wrap
-                horizontal="center"
-                fitWidth
-                data-border="rounded"
-              >
-                {social
-                      .filter((item) => item.essential)
-                      .map(
-                  (item) =>
-                    item.link && (
-                      <React.Fragment key={item.name}>
-                        <Row s={{ hide: true }}>
-                          <Button
-                            key={item.name}
-                            href={item.link}
-                            prefixIcon={item.icon}
-                            label={item.name}
-                            size="s"
-                            weight="default"
-                            variant="secondary"
-                          />
-                        </Row>
-                        <Row hide s={{ hide: false }}>
-                          <IconButton
-                            size="l"
-                            key={`${item.name}-icon`}
-                            href={item.link}
-                            icon={item.icon}
-                            variant="secondary"
-                          />
-                        </Row>
-                      </React.Fragment>
-                    ),
+            <Row
+              fillWidth
+              paddingTop="20"
+              paddingBottom="8"
+              gap="16"
+              vertical="center"
+              horizontal="between"
+              wrap
+              className={styles.blockAlign}
+            >
+              {social.length > 0 && (
+                <Row gap="8" wrap horizontal="start" fitWidth data-border="rounded">
+                  {social
+                        .filter((item) => item.essential)
+                        .map(
+                    (item) =>
+                      item.link && (
+                        <React.Fragment key={item.name}>
+                          <Row s={{ hide: true }}>
+                            <Button
+                              key={item.name}
+                              href={item.link}
+                              prefixIcon={item.icon}
+                              label={item.name}
+                              size="s"
+                              weight="default"
+                              variant="secondary"
+                            />
+                          </Row>
+                          <Row hide s={{ hide: false }}>
+                            <IconButton
+                              size="l"
+                              key={`${item.name}-icon`}
+                              href={item.link}
+                              icon={item.icon}
+                              variant="secondary"
+                            />
+                          </Row>
+                        </React.Fragment>
+                      ),
+                  )}
+                </Row>
+              )}
+              {person.resume && (
+                  <Button
+                    href={person.resume}
+                    variant="primary"
+                    size="m"
+                    weight="default"
+                    prefixIcon="document"
+                    data-border="rounded"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Download Resume
+                  </Button>
                 )}
-              </Row>
-            )}
+            </Row>
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
+            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="l">
               {about.intro.description}
             </Column>
           )}
@@ -231,7 +234,7 @@ export default function About() {
                         {experience.timeframe}
                       </Text>
                     </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="4">
                       {experience.role}
                     </Text>
                     <Column as="ul" gap="16">
@@ -290,7 +293,7 @@ export default function About() {
                         {institution.timeframe}
                       </Text>
                     </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="s">
                       {institution.role}
                     </Text>
                     <Text variant="body-default-m">
@@ -308,7 +311,7 @@ export default function About() {
                 as="h2"
                 id={about.technical.title}
                 variant="display-strong-s"
-                marginBottom="40"
+                marginBottom="20"
               >
                 {about.technical.title}
               </Heading>

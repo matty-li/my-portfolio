@@ -28,6 +28,13 @@ import {
   SiFigma,
   SiSupabase,
   SiItchdotio,
+  SiUnity,
+  SiUnrealengine,
+  SiPython,
+  SiSharp,
+  SiGit,
+  SiPerforce,
+  SiAdobephotoshop,
 } from "react-icons/si";
 
 import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads, FaInstagram, FaXTwitter, FaFacebook, FaPinterest, FaWhatsapp, FaReddit, FaTelegram, } from "react-icons/fa6";
@@ -66,6 +73,13 @@ export const iconLibrary: Record<string, IconType> = {
   reddit: FaReddit,
   telegram: FaTelegram,
   instagram: FaInstagram,
+  unity: SiUnity,
+  unrealengine: SiUnrealengine,
+  python: SiPython,
+  csharp: SiSharp,
+  git: SiGit,
+  perforce: SiPerforce,
+  photoshop: SiAdobephotoshop,
 };
 
 export type IconLibrary = typeof iconLibrary;
