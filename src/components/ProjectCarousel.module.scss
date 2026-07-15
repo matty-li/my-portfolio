@@ -1,0 +1,20 @@
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3rem 1.25rem 1.25rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  border-radius: 0 0 var(--radius-l) var(--radius-l);
+
+  > * {
+    pointer-events: auto;
+  }
+}
+
+.wrapper:hover .overlay {
+  opacity: 1;
+}

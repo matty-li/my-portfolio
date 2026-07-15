@@ -143,9 +143,19 @@ const about: About = {
     role: <>Entertainment Arts Certificate • <strong>4.33 GPA</strong></>,
     description: (
       <>
-        Entertainment Arts Entrance Award for strong application portfolio.
+        Explored a range of disciplines from traditional drawing, painting and sculpting to using software like Maya, Nuke and ZBrush.
+        <br /> Took on personal projects involving photogrammetry and 360° environment capture with a curiosity for documenting real‑world spaces.
+        <br /> Recipient of Entertainment Arts Entrance Award for strong application portfolio.
       </>
     ),
+    images: [
+  {
+    src: "/images/projects/foundations-reel/reel.mp4",
+    alt: "Foundations Demo Reel",
+    width: 16,
+    height: 9,
+  },
+],
   },
 ],
    
@@ -156,7 +166,7 @@ const about: About = {
     skills: [
       {
   title: "Development",
-  description: <>Unity description</>,
+  description: <>I’ve built familiarity with modern game engines and development tools, with experience in gameplay programming, UI programming, VR development, and collaborative version‑controlled workflows.</>,
       tags: [
         { name: "Unity", icon: "unity" },
         { name: "Unreal Engine", icon: "unrealengine" },
@@ -169,7 +179,7 @@ const about: About = {
     },
     {
       title: "Design",
-      description: <>Unreal description</>,
+      description: <>I specialise in designing and implementing player-focused experiences, and leverage my illustration and graphic design experience to create appealing, high-quality visual assets. </>,
       tags: [
         { name: "Figma", icon: "figma" },
         { name: "Adobe Photoshop", icon: "photoshop" },
@@ -180,7 +190,7 @@ const about: About = {
     },
     {
       title: "Approach",
-      description: <>Unreal description</>,
+      description: <>I have a strong work ethic and stay passionate about personal growth, always challenging myself to learn more and solve problems with curiosity and persistence.</>,
       tags: [
         { name: "Attention to detail"},
         { name: "Problem solving"},

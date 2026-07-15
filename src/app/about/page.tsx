@@ -196,24 +196,24 @@ export default function About() {
                 </Row>
               )}
               {person.resume && (
-                  <Button
-                    href={person.resume}
-                    variant="primary"
-                    size="m"
-                    weight="default"
-                    prefixIcon="document"
-                    data-border="rounded"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Download Resume
-                  </Button>
-                )}
+                <Button
+                  href={person.resume}
+                  variant="primary"
+                  size="m"
+                  weight="default"
+                  prefixIcon="document"
+                  data-border="rounded"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download Resume
+                </Button>
+              )}
             </Row>
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="l">
+            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
               {about.intro.description}
             </Column>
           )}
@@ -234,7 +234,7 @@ export default function About() {
                         {experience.timeframe}
                       </Text>
                     </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="4">
+                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="8">
                       {experience.role}
                     </Text>
                     <Column as="ul" gap="16">
@@ -251,23 +251,29 @@ export default function About() {
                       )}
                     </Column>
                     {experience.images && experience.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
+                      <Row fillWidth paddingTop="m" gap="12" wrap>
                         {experience.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
+                          <Column key={index} gap="4" minWidth={image.width}>
+                            <Row
+                              border="neutral-medium"
                               radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
+                              minWidth={image.width}
+                              height={image.height}
+                            >
+                              <Media
+                                enlarge
+                                radius="m"
+                                sizes={image.width.toString()}
+                                alt={image.alt}
+                                src={image.src}
+                              />
+                            </Row>
+                            {image.alt && (
+                              <Text variant="body-default-xs" onBackground="neutral-weak">
+                                {image.alt}
+                              </Text>
+                            )}
+                          </Column>
                         ))}
                       </Row>
                     )}
@@ -293,12 +299,39 @@ export default function About() {
                         {institution.timeframe}
                       </Text>
                     </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="s">
+                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="8">
                       {institution.role}
                     </Text>
                     <Text variant="body-default-m">
                       {institution.description}
                     </Text>
+                    {institution.images && institution.images.length > 0 && (
+                      <Row fillWidth paddingTop="m" gap="12" wrap>
+                        {institution.images.map((image, imgIndex) => (
+                          <Column key={imgIndex} gap="4" minWidth={image.width}>
+                            <Row
+                              border="neutral-medium"
+                              radius="m"
+                              minWidth={image.width}
+                              height={image.height}
+                            >
+                              <Media
+                                enlarge
+                                radius="m"
+                                sizes={image.width.toString()}
+                                alt={image.alt}
+                                src={image.src}
+                              />
+                            </Row>
+                            {image.alt && (
+                              <Text variant="body-default-xs" onBackground="neutral-weak">
+                                {image.alt}
+                              </Text>
+                            )}
+                          </Column>
+                        ))}
+                      </Row>
+                    )}
                   </Column>
                 ))}
               </Column>
@@ -311,7 +344,7 @@ export default function About() {
                 as="h2"
                 id={about.technical.title}
                 variant="display-strong-s"
-                marginBottom="20"
+                marginBottom="40"
               >
                 {about.technical.title}
               </Heading>
@@ -336,21 +369,27 @@ export default function About() {
                     {skill.images && skill.images.length > 0 && (
                       <Row fillWidth paddingTop="m" gap="12" wrap>
                         {skill.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
+                          <Column key={index} gap="4" minWidth={image.width}>
+                            <Row
+                              border="neutral-medium"
                               radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
+                              minWidth={image.width}
+                              height={image.height}
+                            >
+                              <Media
+                                enlarge
+                                radius="m"
+                                sizes={image.width.toString()}
+                                alt={image.alt}
+                                src={image.src}
+                              />
+                            </Row>
+                            {image.alt && (
+                              <Text variant="body-default-xs" onBackground="neutral-weak">
+                                {image.alt}
+                              </Text>
+                            )}
+                          </Column>
                         ))}
                       </Row>
                     )}

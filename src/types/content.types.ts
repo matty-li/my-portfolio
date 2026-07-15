@@ -33,6 +33,8 @@ export type Person = {
    * See: https://www.iana.org/assignments/language-subtag-registry
    */
   locale?: string;
+  /** Path to resume/CV file, e.g. '/resume.pdf' */
+  resume?: string;
 };
 
 /**
@@ -184,10 +186,10 @@ export interface About extends BasePageConfig {
       /** Timeframe of studies */
       timeframe: string;
       /** Credential */
-      role: string;
-      /** Achievements at the institution */
-      achievements: React.ReactNode[];
-      /** Images related to the experience */
+      role: React.ReactNode;
+      /** Description of studies at the institution */
+      description: React.ReactNode;
+      /** Images related to the studies */
       images?: Array<{
         /** Image source path */
         src: string;
@@ -197,6 +199,7 @@ export interface About extends BasePageConfig {
         width: number;
         /** Image height ratio */
         height: number;
+      }>;
     }>;
   };
   /** Technical skills section */
