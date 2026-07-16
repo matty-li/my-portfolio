@@ -1,0 +1,39 @@
+﻿---
+title: "Space Scavenger"
+publishedAt: "2025-07-17"
+summary: "Physics-driven cargo delivery game prototype focused on immersive experience and emergent gameplay​"
+images:
+  - "/images/projects/space-scavenger/title.png"
+  - "/images/projects/space-scavenger/demo.mp4"
+tags:
+  - "Unity"
+  - "Programming"
+  - "User Interface"
+link: "https://shadeskye.itch.io/space-scavenger"
+---
+
+*Scavenge the universe for valuable cargo in a physics-driven space adventure where skillfull maneuvering is necessary to complete objectives, navigate hazards, and unlock ships so you can master the game.* 
+
+## Overview
+
+Space Scavenger began as a prototype exploring a simplified physics simulation involving space bodies that interact with each others’ gravity and orbit. The player pilots a spaceship to collect cargo, earning payment based on its condition upon delivery.
+
+Later, this prototype evolved into a stronger gameplay experience, with new features like upgraded spaceships for purchase and three unique levels with unique hazards and objectives.
+
+# Features
+
+## Custom Gravity Simulation
+
+Space bodies can be pulled by each other's mass using a simplified simulation based on the Law of Universal Gravitation that only lets objects be affected by the body that would be exerting the strongest force on it. Instead of a realistic simulation where all objects can affect each other, this simplified version is better for performance and makes orbits more graceful and predictable. 
+
+Space bodies can be setup with just the radius and the gravity we want it to have, using a rearranged gravity formula to calculate its physics properties and set its scale. If something needs to orbit something else, that can be setup by giving it an orbit target, and the orbital veolcity formula calculates the initial velocity it needs to lock it into orbit when the game starts.  
+
+## Cargo Delivery
+
+A trigger box on the front of the ship extends from the aiming brackets on the HUD. It pulls in objects with force and when it gets close enough the object is deregistered from the overall gravity simulation and is locked into place as a child of the ship. The cargo can be unlocked if it’s knocked loose, and if the player releases the cargo, an impulse force shoots outwards to eject it. 
+
+Cargo items start with an inital value that is linked to the damage percentage. Damage is based on how fast it hits another object, but it also has a fragility property which acts as a damage multiplier. If you deposit into the delivery ring it plays a cashout sound and the value of that item is added to your total earnings.  
+
+## Gameplay Features
+
+Each level offers the player a selection of contracts. Critical missions are specific deliveries that must be completed to progress to the next level, while optional contracts will provide bonus rewards. These extra objectives can include finishing missions within a certain time, taking minimal damage, or executing tricky maneuvers. If the critical mission fails or it becomes impossible to meet its conditions (such as a necessary cargo item being destroyed) the level will restart.

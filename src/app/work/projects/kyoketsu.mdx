@@ -1,42 +1,67 @@
 ---
 title: "Kyoketsu"
 publishedAt: "2025-11-06"
-summary: "Kyoketsu is a momentum ninja runner where every jump, slide, and dash flows into a faster, smoother rhythm. So, master your movement, perfect your path and prove you're a worthy ninja!"
+summary: "Kyoketsu is a first-person parkour game prototype focused on creating smooth movement systems that work with multiple input devices and control schemes"
 images:
-  - "/images/projects/kyoketsu/kyoketsu-gif1.gif"
-  - "/images/projects/kyoketsu/kyoketsu-gif1.gif"
+  - "/images/projects/kyoketsu/title.png"
+  - "/images/projects/kyoketsu/demo.mp4"
+  - "/images/projects/kyoketsu/levelselect.mp4"
+  - "/images/projects/kyoketsu/settings.png"
 tags:
   - "Unreal Engine"
   - "Programming"
+  - "User Interface"
 link: "https://pedromeloofficial.itch.io/kyoketsu"
 ---
 
+*Kyoketsu is a momentum ninja runner where every jump, slide, and dash flows into a faster, smoother rhythm. So, master your movement, perfect your path and prove you're a worthy ninja!*
+
 ## Overview
 
-In this project, I focused on automating the often tedious design handover process. The goal was to create a pipeline that converts Figma designs directly into clean, production-ready code. By integrating design tokens, component libraries, and automated workflows, this solution significantly reduced the time spent on translating design assets into code, while maintaining design consistency across the product.
+Kyoketsu is a first-person parkour game prototype centered around the design of smooth, momentum-based, speedrunning-focused gameplay. Players learn how movement mechanics such as dashing, sliding, wallrunning, and grappling can interact with each other to achieve mastery over the levels and beat their personal scores. 
 
-## Key Features
+Aside from the level progression and score system, another way Kyoketsu was created with speedrunners in mind is designing base and alternate control schemes for both mouse and keyboard and controller players.
 
-- **Figma Plugin Integration**: Developed a custom Figma plugin that extracts design tokens such as colors, typography, and spacing values, and exports them in a format compatible with our codebase.
-- **Code Generation**: Integrated an automated process that translates Figma components into React code using a combination of design tokens and pre-built component templates. This allowed developers to focus more on logic and less on repetitive UI coding.
-- **Continuous Sync**: Established a CI/CD pipeline that continuously synchronizes design changes from Figma to the codebase, ensuring design updates are reflected instantly without manual intervention.
-- **Scalable Design System**: Leveraged a design system that remains the single source of truth for both designers and developers, making it easy to maintain consistency even as the product evolves.
+# Features
 
-## Technologies Used
+## Parkour Movement
 
-- **Figma API**: For extracting design tokens and component data directly from the Figma designs.
-- **React and Next.js**: For building the front-end codebase with clean, reusable components.
-- **Styled-Components**: For managing styles dynamically using design tokens.
-- **GitHub Actions**: For automating the pipeline and syncing design changes to the repository.
+Smooth parkour movement is a core part of the game. Our top priority was making it functional and intuitive, fixing issues and eliminating bugs so it behaves exactly the way players expect. 
 
-## Challenges and Learnings
+### Dash 
+- Tap to dash forward
+- Can be used only once in the air
+- Can kill dummies
+- Charge resets on touching ground, wallrunning, or grappling
 
-One of the biggest challenges was ensuring that the generated code was clean and maintainable. This involved setting up intelligent mapping between Figma components and React code structures, as well as managing edge cases like responsive design and conditional rendering. Additionally, the continuous synchronization required a robust error-handling system to prevent conflicts during development.
+### Slide
+- Hold to crouch
+- Hold while moving to slide
+- Can kill dummies if going fast enough
+- Gradually slows to a stop
 
-## Outcome
+### Wallrun
+- Starts when hitting Wallrun game object while falling
+- End on pressing jump, or no longer on wall
+- Boost jump with increased distance
+- Camera tilt
 
-The automated Figma to code pipeline has streamlined the handoff process, cutting down design-to-development time by 40%. Designers now have more confidence that their designs will be accurately translated into code, and developers can focus on more complex logic and feature development. This project has proven the value of automation in bridging the gap between design and development.
+### Grapple
+- Shoots rope with ring to Grapple anchor point
+- Pulls player towards point
+- Cancels if reached point, landed, or line of sight obstructed
 
----
+## Controls
 
-This project demonstrates your ability to leverage automation and streamline workflows, which is highly relevant for design engineering portfolios focused on efficiency and innovation.
+As a fast-flowing first-person game it's important for the player to be able to easily and naturally move around the level, so the basic controls for both look and movement must be intuitive and ergonomic enough for the player to make quick, responsive inputs.
+
+However, the capacity to do so can be limited by some control schemes. Even this slight limitation makes the movement just a little bit unwieldy and reduces the skill expression of the flow-state style of parkour, so we have provided multiple control schemes to remove that limitation, for players who want to make the trade-off of easier controls for smoother gameplay.
+
+- **Default layouts** are more conventional and beginner-friendly, but some parkour move inputs are positioned in a way that the player is physically able use them while simultaneously operating basic movement
+- **Alternative layouts** take a little bit of time to get used to as they're not as conventional, but the placement of the action inputs lets you execute any parkour move without taking your hands off the basic movement controls
+
+## Gameplay Features
+
+Starting a level requires a button press, giving the player a moment to prepare before the timer begins. Players can quick-restart a level to immediately try again if a run goes wrong. Resuming the game triggers a short countdown, giving the player time to get ready before control resumes.
+
+We use two sets of data arrays to manage levels. LevelData is static and holds everything needed to define and set up a level - its name, star rating times, thumbnail image, display name, and the level asset itself. LevelSave is dynamic and stores the player's progress, keeping track of and saving things like their fastest times and unlocked levels.
