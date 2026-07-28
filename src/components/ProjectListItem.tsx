@@ -25,7 +25,7 @@ export const ProjectListItem: React.FC<ProjectListItemProps> = ({
 }) => {
   const router = useRouter();
 
-  const handleTagClick = (e: React.MouseEvent, tag: string) => {
+  const handleTagClick = (e: React.MouseEvent<any>, tag: string) => {
     e.preventDefault();
     e.stopPropagation();
     router.push(`/work?tag=${encodeURIComponent(tag)}`);
