@@ -152,8 +152,8 @@ const about: About = {
   {
     src: "/images/projects/foundations-reel/reel.mp4",
     alt: "Foundations Demo Reel",
-    width: 16,
-    height: 9,
+    width: 16*2.25,
+    height: 9*2.25,
   },
 ],
   },
