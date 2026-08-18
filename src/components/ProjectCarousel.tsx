@@ -83,10 +83,10 @@ export function ProjectCarousel({
             )}
           </Column>
           <SmartLink href={current.href} style={{ flexShrink: 0 }}>
-            <Button variant="secondary" size="s" weight="default" arrowIcon>
-              Read More
-            </Button>
-          </SmartLink>
+          <Button variant="secondary" size="s" weight="default" arrowIcon>
+            <span style={{ color: "#ffffff" }}>Read More</span>
+          </Button>
+        </SmartLink>
         </Row>
         {items.length > 1 && (
   <Row
