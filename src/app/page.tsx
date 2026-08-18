@@ -3,7 +3,6 @@ import {
   Text,
   Button,
   IconButton,
-  RevealFx,
   Column,
   Row,
   Schema,
@@ -31,13 +30,13 @@ export default function Home() {
   );
 
   const carouselItems = allProjects
-  .filter((project) => project.metadata.images.length > 0)
-  .map((project) => ({
-    image: project.metadata.images[0],
-    alt: project.metadata.title,
-    href: `/work/${project.slug}`,
-    description: project.metadata.summary,
-  }));
+    .filter((project) => project.metadata.images.length > 0)
+    .map((project) => ({
+      image: project.metadata.images[0],
+      alt: project.metadata.title,
+      href: `/work/${project.slug}`,
+      description: project.metadata.summary,
+    }));
 
   return (
     <Column maxWidth="l" gap="xl" paddingY="12" horizontal="center">
@@ -56,76 +55,66 @@ export default function Home() {
       />
       <Row fillWidth gap="40" vertical="center" paddingY="24" s={{ direction: "column" }}>
         <Column flex={5} gap="16" fillWidth>
-          <RevealFx translateY="4" fillWidth paddingBottom="8">
-            <Heading wrap="balance" variant="display-strong-m">
-              {home.headline}
-            </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={0.15} fillWidth paddingBottom="8">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              {home.subline}
-            </Text>
-          </RevealFx>
+          <Heading wrap="balance" variant="display-strong-m">
+            {home.headline}
+          </Heading>
+          <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+            {home.subline}
+          </Text>
           {social.length > 0 && (
-            <RevealFx translateY="8" delay={0.25} fillWidth>
-              <Row gap="8" wrap>
-                {social
-                  .filter((item) => item.essential)
-                  .map(
-                    (item) =>
-                      item.link && (
-                        <IconButton
-                          key={item.name}
-                          href={item.link}
-                          icon={item.icon}
-                          variant="secondary"
-                          size="l"
-                          tooltip={item.name}
-                          data-border="rounded"
-                        />
-                      ),
-                  )}
-              </Row>
-            </RevealFx>
+            <Row gap="8" wrap>
+              {social
+                .filter((item) => item.essential)
+                .map(
+                  (item) =>
+                    item.link && (
+                      <IconButton
+                        key={item.name}
+                        href={item.link}
+                        icon={item.icon}
+                        variant="secondary"
+                        size="l"
+                        tooltip={item.name}
+                        data-border="rounded"
+                      />
+                    ),
+                )}
+            </Row>
           )}
-          <RevealFx paddingTop="8" delay={0.35} fillWidth>
-            <Row gap="12" wrap>
+          <Row gap="12" wrap>
+            <Button
+              id="about"
+              data-border="rounded"
+              href={about.path}
+              variant="primary"
+              size="m"
+              weight="default"
+            >
+              About Me
+            </Button>
+            {person.resume && (
               <Button
-                id="about"
-                data-border="rounded"
-                href={about.path}
-                variant="primary"
+                href={person.resume}
+                variant="secondary"
                 size="m"
                 weight="default"
+                prefixIcon="document"
+                data-border="rounded"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                About Me
+                Download Resume
               </Button>
-              {person.resume && (
-                <Button
-                  href={person.resume}
-                  variant="secondary"
-                  size="m"
-                  weight="default"
-                  prefixIcon="document"
-                  data-border="rounded"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Download Resume
-                </Button>
-              )}
-            </Row>
-          </RevealFx>
+            )}
+          </Row>
         </Column>
         <Column flex={6} fillWidth>
-          <RevealFx translateY="16" delay={0.2} fillWidth>
-            <ProjectCarousel
-              items={carouselItems}
-              interval={4000}
-              aspectRatio="4 / 3"
-              sizes="(max-width: 960px) 100vw, 720px"
-            />
-          </RevealFx>
+          <ProjectCarousel
+            items={carouselItems}
+            interval={4000}
+            aspectRatio="4 / 3"
+            sizes="(max-width: 960px) 100vw, 720px"
+          />
         </Column>
       </Row>
       {routes["/blog"] && (

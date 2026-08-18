@@ -89,7 +89,7 @@ export default async function Work({
           </SmartLink>
         </Row>
       </Row>
-      <Projects tag={tag} layout="list" sort={activeSort} />
+      <Projects tag={tag} sort={activeSort} />
     </Column>
   );
 }

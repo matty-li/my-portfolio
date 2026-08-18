@@ -1,16 +1,15 @@
 import { getPosts } from "@/utils/utils";
 import { Column } from "@once-ui-system/core";
-import { ProjectCard, ProjectListItem } from "@/components";
+import { ProjectListItem } from "@/components";
 
 interface ProjectsProps {
   range?: [number, number?];
   exclude?: string[];
   tag?: string;
-  layout?: "card" | "list";
   sort?: "newest" | "oldest";
 }
 
-export function Projects({ range, exclude, tag, layout = "card", sort = "newest" }: ProjectsProps) {
+export function Projects({ range, exclude, tag, sort = "newest" }: ProjectsProps) {
   let allProjects = getPosts(["src", "app", "work", "projects"]);
 
   if (exclude && exclude.length > 0) {
@@ -30,39 +29,18 @@ export function Projects({ range, exclude, tag, layout = "card", sort = "newest"
     ? sortedProjects.slice(range[0] - 1, range[1] ?? sortedProjects.length)
     : sortedProjects;
 
-  if (layout === "list") {
-    return (
-      <Column fillWidth marginBottom="40" paddingX="l">
-        {displayedProjects.map((post) => (
-          <ProjectListItem
-            key={post.slug}
-            href={`/work/${post.slug}`}
-            image={post.metadata.images?.[0]}
-            title={post.metadata.title}
-            description={post.metadata.summary}
-            tags={post.metadata.tags}
-            ctaHref={post.metadata.link}
-            date={post.metadata.publishedAt}
-          />
-        ))}
-      </Column>
-    );
-  }
-
   return (
-    <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
-      {displayedProjects.map((post, index) => (
-        <ProjectCard
-          priority={index < 2}
+    <Column fillWidth marginBottom="40" paddingX="l">
+      {displayedProjects.map((post) => (
+        <ProjectListItem
           key={post.slug}
           href={`/work/${post.slug}`}
-          images={post.metadata.images}
+          image={post.metadata.images?.[0]}
           title={post.metadata.title}
           description={post.metadata.summary}
-          content={post.content}
-          avatars={[]}
-          link={post.metadata.link || ""}
           tags={post.metadata.tags}
+          ctaHref={post.metadata.link}
+          date={post.metadata.publishedAt}
         />
       ))}
     </Column>
