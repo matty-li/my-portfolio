@@ -98,8 +98,9 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
+        <br/>I'm a game development graduate working towards a computer systems education. 
+        <br/>My background is in art and UI/UX design, but I'm most passionate about programming, technical problem-solving, and VR/XR development.
         <br/>I'm always excited to learn new things and expand my skills/knowledge, and I'm happy to help out and support others when I can.
-        <br/>While I have a background in art and UI/UX design, I'm drawn to programming and the challenges of technical problem solving.
       </>
     ),
   },
@@ -130,10 +131,13 @@ const about: About = {
   {
     name: "Kwantlen Polytechnic University",
     timeframe: "Sep 2024 - Present",
-    role: <>Advanced Game Development Diploma • <strong>4.3 GPA</strong></>,
+    role: <>Advanced Game Development Diploma • <strong>4.27 GPA</strong></>,
     description: (
       <>
-        Entertainment Arts Entrance Award for strong application portfolio.
+        Gained proficiency in C# programming for Unity development, including working with OpenXR and Meta Quest SDK for VR/XR 
+        <br /> Developed and released game projects (in Unity and Unreal Engine) as team programmer, in scopes ranging from 1 week to 3 months
+        <br /> <em>Recipient of Entertainment Arts Entrance Award for strong application portfolio.</em>
+        
       </>
     ),
   },
@@ -145,7 +149,7 @@ const about: About = {
       <>
         Explored a range of disciplines from traditional drawing, painting and sculpting to using software like Maya, Nuke and ZBrush.
         <br /> Took on personal projects involving photogrammetry and 360° environment capture with a curiosity for documenting real‑world spaces.
-        <br /> Recipient of Entertainment Arts Entrance Award for strong application portfolio.
+        <br /> <em>Recipient of Entertainment Arts Entrance Award for strong application portfolio.</em>
       </>
     ),
     images: [
@@ -174,6 +178,7 @@ const about: About = {
         { name: "Python", icon: "python" },
         { name: "Perforce", icon: "perforce" },
         { name: "Git", icon: "git" },
+        { name: "Meta Quest SDK", icon: "meta" },
       ],
       images: [],
     },
